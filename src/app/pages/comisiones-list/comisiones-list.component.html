@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Cálculo de Comisiones</h2>
+
+  <div class="row mb-3">
+    <div class="col-auto">
+      <label for="desde">Desde:</label>
+      <input id="desde" type="date" [(ngModel)]="desde" name="desde" class="form-control">
+    </div>
+    <div class="col-auto">
+      <label for="hasta">Hasta:</label>
+      <input id="hasta" type="date" [(ngModel)]="hasta" name="hasta" class="form-control">
+    </div>
+    <div class="col-auto align-self-end">
+      <button class="btn btn-primary" (click)="calcular()">Calcular</button>
+    </div>
+  </div>
+
+  <p *ngIf="loading">Calculando...</p>
+  <p *ngIf="error" class="text-danger">{{ error }}</p>
+
+  <table *ngIf="!loading && comisiones.length" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Vendedor</th>
+        <th>Total Ventas</th>
+        <th>% Comisión</th>
+        <th>Monto Comisión</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of comisiones">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.totalVentas | currency:'USD' }}</td>
+        <td>{{ c.porcentaje * 100 | number:'1.0-2' }}%</td>
+        <td>{{ c.monto | currency:'USD' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!loading && !comisiones.length && !error">No hay resultados para el rango seleccionado.</p>
+</div>

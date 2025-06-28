@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Listado de Ventas</h2>
+  <button class="btn btn-secondary mb-3" (click)="fetchVentas()">Refrescar</button>
+
+  <p *ngIf="loading">Cargando...</p>
+  <p *ngIf="error" class="text-danger">{{ error }}</p>
+
+  <table *ngIf="!loading && !error" class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Monto</th>
+        <th>Vendedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of ventas">
+      <td>{{ v.ventaId }}</td>
+      <td>{{ v.fecha | date:'shortDate' }}</td>
+      <td>{{ v.monto | currency:'USD' }}</td>
+      <td>{{ v.vendedor }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
