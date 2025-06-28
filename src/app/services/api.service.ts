@@ -6,7 +6,7 @@ import { Comision } from '../models/comision.model';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private baseUrl = 'https://localhost:7025/api';
+  private baseUrl = 'https://minicore-backend-msmw.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
