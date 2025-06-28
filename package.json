@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --no-prerender",
+    "build": "ng build --configuration production --output-mode client",
     "postbuild": "cp dist/minicore-comisiones-front/index.html dist/minicore-comisiones-front/200.html",
-    "watch": "ng build --watch --configuration development --no-prerender",
+    "watch": "ng build --watch --configuration development --output-mode client",
     "test": "ng test"
   },
   "private": true,
