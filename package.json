@@ -1,12 +1,11 @@
 {
   "name": "minicore-comisiones-front",
   "version": "0.0.0",
-  "scripts": {
+"scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --output-mode client",
-    "postbuild": "cp dist/minicore-comisiones-front/index.html dist/minicore-comisiones-front/200.html",
-    "watch": "ng build --watch --configuration development --output-mode client",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
